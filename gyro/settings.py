@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'gyro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd4a11fh870g5p6',
+        'USER': 'brkagjlkxtiabw',
+        'PASSWORD': '3050d974e8403434659329edcca05c7394e852dad2425d3db10eb6a2587ff916',
+        'HOST': 'ec2-23-21-129-125.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
