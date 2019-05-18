@@ -1,0 +1,1 @@
+web: gunicorn gyro.wsgi --log-file -
