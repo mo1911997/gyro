@@ -8,4 +8,4 @@ class EmployeeSerializer(serializers.ModelSerializer):
 class SalarySerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
-        fields = "__all__"
+        fields = "name"
