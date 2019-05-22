@@ -7,4 +7,3 @@ class Employee(models.Model):
     email = models.EmailField(max_length=40)
     designation = models.CharField(max_length=40)
     salary = models.CharField(max_length=40)
-    
