@@ -4,6 +4,7 @@ from .models import Users
 from rest_framework import status
 from .serializers import *
 from rest_framework.response import Response
+
 # Create your views here.
 class UserView(APIView):
     def get(self, request, format=None):
