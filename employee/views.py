@@ -28,7 +28,8 @@ class EmployeeAddView(APIView):
 
 class GetSalView(APIView):
         def post(self,request,format=None):
-            sentence = word_tokenize(request.data['sentence'])
+            # sentence = word_tokenize(request.data['sentence'])
+            sentence = request.data['sentence'].split()
             pos = nltk.pos_tag(sentence)
             # entities = nltk.ne_chunk(pos)
             patterns = """mychunk:{<NN.?>*<VBD.?>*<JJ.?>*<CC>?}"""
