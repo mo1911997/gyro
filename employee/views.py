@@ -4,6 +4,7 @@ from rest_framework import status
 from nltk.tokenize import sent_tokenize
 from .serializers import *
 from rest_framework.response import Response
+from nltk.tokenize import word_tokenize
 import nltk
 nltk.download('punkt')
 class EmployeeView(APIView):
@@ -24,7 +25,7 @@ class EmployeeAddView(APIView):
 
 class GetSalView(APIView):
         def post(self,request,format=None):
-            sentence = str(self.request.query_params.get('sentence'))
-            myarr = sent_tokenize(sentence)
+            sentence = word_tokenize(str(self.request.query_params.get('sentence')))
+            # myarr = sent_tokenize(sentence)
             # serializer = SalarySerializer(data=request.data)
-            return Response(myarr)
+            return Response(sentence)
