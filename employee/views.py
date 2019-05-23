@@ -1,15 +1,16 @@
 from rest_framework.views import APIView
 from .models import Employee
 from rest_framework import status
-from nltk.tokenize import sent_tokenize
 from .serializers import *
 from rest_framework.response import Response
-from nltk.tokenize import word_tokenize
 import nltk
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 nltk.download('maxent_ne_chunker')
 nltk.download('words')
+from nltk import ne_chunk
+from nltk import pos_tag
+from nltk import word_tokenize
 class EmployeeView(APIView):
     def get(self, request, format=None):
         users = Employee.objects.all()
@@ -29,16 +30,13 @@ class EmployeeAddView(APIView):
 class GetSalView(APIView):
         def post(self,request,format=None):
             # sentence = word_tokenize(request.data['sentence'])
-            sentence = request.data['sentence'].split()
-            pos = nltk.pos_tag(sentence)
-            # entities = nltk.ne_chunk(pos)
-            patterns = """mychunk:{<NN.?>*<VBD.?>*<JJ.?>*<CC>?}"""
-            chunker = nltk.RegexpParser(patterns)
-            output = chunker.parse(pos)
-            ls = []
-            for i in output[0][0]:
-                ls.append(i)
-
+            sentence = request.data['sentence']
+            tokens_tag = pos_tag(word_tokenize(sentence))
+            output = ne_chunk(tokens_tag)
+            ls=[]
+            for i, j in tokens_tag:
+                if (j == "NN"):
+                    ls.append(i)
             # name = request.data['name']
             # something = Employee.objects.filter(name=name).values()
             # myarr = sent_tokenize(sentence)
