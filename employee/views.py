@@ -4,7 +4,8 @@ from rest_framework import status
 from nltk.tokenize import sent_tokenize
 from .serializers import *
 from rest_framework.response import Response
-
+import nltk
+nltk.download('punkt')
 class EmployeeView(APIView):
     def get(self, request, format=None):
         users = Employee.objects.all()
