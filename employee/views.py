@@ -37,7 +37,7 @@ class GetSalView(APIView):
             for i, j in tokens_tag:
                 if (j == "NN"):
                     ls.append(i)
-            return Response(output)
+            return Response(ls)
             # name = request.data['name']
             # something = Employee.objects.filter(name=name).values()
             # myarr = sent_tokenize(sentence)
