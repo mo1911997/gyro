@@ -9,6 +9,7 @@ import nltk
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 nltk.download('maxent_ne_chunker')
+nltk.download('words')
 class EmployeeView(APIView):
     def get(self, request, format=None):
         users = Employee.objects.all()
