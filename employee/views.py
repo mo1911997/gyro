@@ -33,13 +33,13 @@ class GetSalView(APIView):
             sentence = request.data['sentence']
             tokens_tag = pos_tag(word_tokenize(sentence))
             output = ne_chunk(tokens_tag)
-            ls = None
+            
             for i, j in output:
                 if (j == "NN"):
-                    ls = i
+                    # ls = i
+                    return Response(i)
             # name = request.data['name']
             # something = Employee.objects.filter(name=name).values()
             # myarr = sent_tokenize(sentence)
             # serializer = SalarySerializer(data=request.data)
             # return Response(c[0] for c in entities)
-            return Response(ls)
