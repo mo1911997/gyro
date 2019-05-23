@@ -35,9 +35,13 @@ class GetSalView(APIView):
             patterns = """mychunk:{<NN.?>*<VBD.?>*<JJ.?>*<CC>?}"""
             chunker = nltk.RegexpParser(patterns)
             output = chunker.parse(pos)
+            ls = []
+            for i in output[0]:
+                ls.append(i)
+
             # name = request.data['name']
             # something = Employee.objects.filter(name=name).values()
             # myarr = sent_tokenize(sentence)
             # serializer = SalarySerializer(data=request.data)
             # return Response(c[0] for c in entities)
-            return Response(output)
+            return Response(ls)
