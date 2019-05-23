@@ -31,6 +31,7 @@ class GetSalView(APIView):
             sentence = word_tokenize(request.data['sentence'])
             pos = nltk.pos_tag(sentence)
             entities = nltk.ne_chunk(pos)
+
             # myarr = sent_tokenize(sentence)
             # serializer = SalarySerializer(data=request.data)
-            return Response(entities)
+            return Response(c[0] for c in entities)
