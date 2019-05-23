@@ -28,10 +28,12 @@ class EmployeeAddView(APIView):
 
 class GetSalView(APIView):
         def post(self,request,format=None):
-            sentence = word_tokenize(request.data['sentence'])
-            pos = nltk.pos_tag(sentence)
-            entities = nltk.ne_chunk(pos)
-
+            # sentence = word_tokenize(request.data['sentence'])
+            # pos = nltk.pos_tag(sentence)
+            # entities = nltk.ne_chunk(pos)
+            name = request.data['name']
+            something = Employee.objects.filter(name=name)
             # myarr = sent_tokenize(sentence)
             # serializer = SalarySerializer(data=request.data)
-            return Response(c[0] for c in entities)
+            # return Response(c[0] for c in entities)
+            return Response(something)
