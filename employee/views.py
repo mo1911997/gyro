@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from .models import Employee
 from rest_framework import status
+import en_core_web_sm
 from .serializers import *
 from rest_framework.response import Response
 import spacy
@@ -22,7 +23,7 @@ class EmployeeAddView(APIView):
 
 class GetSalView(APIView):
         def post(self,request,format=None):
-           # nlp = spacy.load('en_core_web_sm')
+            nlp = en_core_web_sm.load()
             serializer = SalarySerializer(data=request.data)
 
 
