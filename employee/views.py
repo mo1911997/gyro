@@ -35,7 +35,7 @@ class GetSalView(APIView):
             output = ne_chunk(tokens_tag)
             ls = []
             for i, j in tokens_tag:
-                if (j == "NN"):
+                if (j == "JJ"):
                     ls.append(i)
             return Response(ls)
             # name = request.data['name']
