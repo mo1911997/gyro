@@ -36,11 +36,10 @@ class GetSalView(APIView):
             ls = []
             for i, j in output:
                 if (j == "NN"):
-                    # ls = i
                     ls.append(i)
+            return Response(ls)
             # name = request.data['name']
             # something = Employee.objects.filter(name=name).values()
             # myarr = sent_tokenize(sentence)
             # serializer = SalarySerializer(data=request.data)
             # return Response(c[0] for c in entities)
-            return Response(ls)
