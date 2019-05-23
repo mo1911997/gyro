@@ -1,9 +1,15 @@
 from rest_framework.views import APIView
 from .models import Employee
 from rest_framework import status
+from nltk.tokenize import sent_tokenize
 from .serializers import *
 from rest_framework.response import Response
-import spacy
+from nltk.tokenize import word_tokenize
+import nltk
+nltk.download('averaged_perceptron_tagger')
+nltk.download('punkt')
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
 class EmployeeView(APIView):
     def get(self, request, format=None):
         users = Employee.objects.all()
@@ -22,6 +28,20 @@ class EmployeeAddView(APIView):
 
 class GetSalView(APIView):
         def post(self,request,format=None):
-            nlp = spacy.load("en_core_web_sm")
-            serializer = SalarySerializer(data=request.data)
-            return Response(serializer)
+            # sentence = word_tokenize(request.data['sentence'])
+            sentence = request.data['sentence'].split()
+            pos = nltk.pos_tag(sentence)
+            # entities = nltk.ne_chunk(pos)
+            patterns = """mychunk:{<NN.?>*<VBD.?>*<JJ.?>*<CC>?}"""
+            chunker = nltk.RegexpParser(patterns)
+            output = chunker.parse(pos)
+            ls = []
+            for i in output[0][0]:
+                ls.append(i)
+
+            # name = request.data['name']
+            # something = Employee.objects.filter(name=name).values()
+            # myarr = sent_tokenize(sentence)
+            # serializer = SalarySerializer(data=request.data)
+            # return Response(c[0] for c in entities)
+            return Response(ls)
