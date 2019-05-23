@@ -23,7 +23,7 @@ class EmployeeView(APIView):
 
 class GetSalView(APIView):
         def post(self,request,format=None):
-            nlp = spacy.load('en')
+            nlp = spacy.load('en_core_web_sm')
             serializer = SalarySerializer(data=request.data)
 
 
