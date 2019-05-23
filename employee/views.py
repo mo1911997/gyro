@@ -25,7 +25,7 @@ class EmployeeAddView(APIView):
 
 class GetSalView(APIView):
         def post(self,request,format=None):
-            sentence = request.data['sentence']
+            sentence = word_tokenize(request.data['sentence'])
             # myarr = sent_tokenize(sentence)
             # serializer = SalarySerializer(data=request.data)
             return Response(sentence)
