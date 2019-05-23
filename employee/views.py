@@ -33,10 +33,10 @@ class GetSalView(APIView):
             sentence = request.data['sentence']
             tokens_tag = pos_tag(word_tokenize(sentence))
             output = ne_chunk(tokens_tag)
-            ls=[]
+
             for i, j in tokens_tag:
                 if (j == "NN"):
-                    ls.append(i)
+                    ls = i
             # name = request.data['name']
             # something = Employee.objects.filter(name=name).values()
             # myarr = sent_tokenize(sentence)
