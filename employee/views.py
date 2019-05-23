@@ -6,6 +6,7 @@ from .serializers import *
 from rest_framework.response import Response
 from nltk.tokenize import word_tokenize
 import nltk
+nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 class EmployeeView(APIView):
     def get(self, request, format=None):
