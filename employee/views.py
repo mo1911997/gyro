@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from .models import Employee
 from rest_framework import status
-
+from nltk.tokenize import sent_tokenize
 from .serializers import *
 from rest_framework.response import Response
 
@@ -23,6 +23,7 @@ class EmployeeAddView(APIView):
 
 class GetSalView(APIView):
         def post(self,request,format=None):
+            sentence = request.POST['sentence']
 
-            serializer = SalarySerializer(data=request.data)
-            return Response(serializer)
+            # serializer = SalarySerializer(data=request.data)
+            return Response(sent_tokenize(sentence))
