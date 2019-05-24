@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from rest_framework.views import APIView
 from .models import Employee
 from rest_framework import status
+import json
 from .serializers import *
 from rest_framework.response import Response
 import nltk
@@ -41,7 +42,8 @@ class GetSalView(APIView):
             #     if (j == "NN"):
             #         salary_param = i
                     # ls.append(i)
-            return HttpResponse(salary_param)
+            ss = json.load(salary_param)
+            return Response(ss)
             # name = request.data['name']
             # something = Employee.objects.filter(name=name).values()
             # myarr = sent_tokenize(sentence)
