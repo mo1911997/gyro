@@ -1,9 +1,11 @@
+from django.http import HttpResponse
 from rest_framework.views import APIView
 from .models import Employee
 from rest_framework import status
 from .serializers import *
 from rest_framework.response import Response
 import nltk
+
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 nltk.download('maxent_ne_chunker')
@@ -28,6 +30,7 @@ class EmployeeAddView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class GetSalView(APIView):
+
         def post(self,request,format=None):
             # sentence = word_tokenize(request.data['sentence'])
             sentence = request.data['sentence']
@@ -38,7 +41,7 @@ class GetSalView(APIView):
             #     if (j == "NN"):
             #         salary_param = i
                     # ls.append(i)
-            return Response(salary_param)
+            return HttpResponse(salary_param)
             # name = request.data['name']
             # something = Employee.objects.filter(name=name).values()
             # myarr = sent_tokenize(sentence)
