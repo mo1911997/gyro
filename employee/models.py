@@ -7,3 +7,9 @@ class Employee(models.Model):
     email = models.EmailField(max_length=40)
     designation = models.CharField(max_length=40)
     salary = models.CharField(max_length=40)
+
+class Leave(models.Model):
+    type = models.CharField(max_length=40)
+    days = models.IntegerField(max_length=10)
+    balance = models.IntegerField(max_length=10)
+    empid = models.ForeignKey(Employee,on_delete=models.CASCADE)

@@ -22,8 +22,6 @@ class EmployeeView(APIView):
 
 class EmployeeAddView(APIView):
     def post(self, request, format=None):
-
-
         serializer = EmployeeSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -31,7 +29,6 @@ class EmployeeAddView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class GetSalView(APIView):
-
         def post(self,request,format=None):
             # sentence = word_tokenize(request.data['sentence'])
             sentence = request.data['sentence']
@@ -48,3 +45,11 @@ class GetSalView(APIView):
             # myarr = sent_tokenize(sentence)
             # serializer = SalarySerializer(data=request.data)
             # return Response(c[0] for c in entities)
+
+class LeaveAddView(APIView):
+    def post(self, request, format=None):
+        serializer = LeaveSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
