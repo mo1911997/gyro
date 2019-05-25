@@ -42,7 +42,7 @@ class GetSalView(APIView):
                  if (j == "NN" or j =="JJ"):
                      salary_param.append(i)
                      #ss = json.load(salary_param)
-            return Response(output)
+            return Response(tokens_tag)
             # name = request.data['name']
             # something = Employee.objects.filter(name=name).values()
             # myarr = sent_tokenize(sentence)
