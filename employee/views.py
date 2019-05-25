@@ -56,8 +56,8 @@ class LeaveAddView(APIView):
 
 class LeaveView(APIView):
     def get(self, request, format=None):
-        user_id = int(request.POST['id'])
-        user = Leave.objects.get(id=user_id)
+        #user_id = int(request.POST['id'])
+        #user = Leave.objects.get(id=user_id)
         users = Leave.objects.all()
         serializer = LeaveSerializer(users, many=True)
         return Response(serializer.data)
