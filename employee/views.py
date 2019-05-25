@@ -44,7 +44,7 @@ class GetSalView(APIView):
 
                     # ls.append(i)
             ss = json.load(salary_param)
-            return Response(ss)
+            return Response(salary_param)
             # name = request.data['name']
             # something = Employee.objects.filter(name=name).values()
             # myarr = sent_tokenize(sentence)
