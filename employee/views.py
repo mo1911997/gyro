@@ -37,10 +37,10 @@ class GetSalView(APIView):
             sentence = request.data['sentence']
             tokens_tag = pos_tag(word_tokenize(sentence))
             output = ne_chunk(tokens_tag)
-            salary_param = "aaaa"
-            # for i, j in tokens_tag:
-            #     if (j == "NN"):
-            #         salary_param = i
+            #salary_param = "aaaa"
+            for i, j in tokens_tag:
+                 if (j == "NN"):
+                     salary_param = i
                     # ls.append(i)
             ss = json.load(salary_param)
             return Response(ss)
