@@ -40,7 +40,7 @@ class GetSalView(APIView):
             salary_param = "aaaaaaaaa"
             for i, j in tokens_tag:
                  if (j == "NN"):
-                     salary_param = i
+                     ss = i
                      #ss = json.load(salary_param)
             return Response(salary_param)
             # name = request.data['name']
