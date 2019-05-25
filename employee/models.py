@@ -10,6 +10,6 @@ class Employee(models.Model):
 
 class Leave(models.Model):
     type = models.CharField(max_length=40)
-    days = models.IntegerField(max_length=10)
-    balance = models.IntegerField(max_length=10)
+    days = models.IntegerField()
+    balance = models.IntegerField()
     empid = models.ForeignKey(Employee,on_delete=models.CASCADE)
