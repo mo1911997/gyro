@@ -55,9 +55,9 @@ class LeaveAddView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class LeaveView(APIView):
-    def post(self, request, format=None):
+    def get(self, request, format=None):
         user_id = int(request.POST['id'])
         user = Leave.objects.get(id=user_id)
-        #users = Leave.objects.all()
-        serializer = LeaveSerializer(user, many=True)
+        users = Leave.objects.all()
+        serializer = LeaveSerializer(users, many=True)
         return Response(serializer.data)
