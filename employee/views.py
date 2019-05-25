@@ -39,7 +39,7 @@ class GetSalView(APIView):
             output = ne_chunk(tokens_tag)
             salary_param = []
             for i, j in tokens_tag:
-                 if (j == "NN"):
+                 if (j == "NN" or j =="JJ"):
                      salary_param.append(i)
                      #ss = json.load(salary_param)
             return Response(salary_param)
