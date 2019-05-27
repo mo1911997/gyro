@@ -69,5 +69,5 @@ class LeaveView(APIView):
         empid  = request.data['empid']
 
         post_data = {'type':type,'days':days,'balance':balance,'empid':empid}
-        res = request.post("https://peaceful-shore-77889.herokuapp.com/employee/addleave/",data=post_data)
+        res = request.post("https://peaceful-shore-77889.herokuapp.com/employee/addleave",data=post_data)
         return Response(res)
