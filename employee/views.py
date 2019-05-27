@@ -32,6 +32,13 @@ class EmployeeAddView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class GetEmployeeLeaveView(APIView):
+    def post(self, request, format=None):
+        user_id = request.data['empid']
+        user = Leave.objects.filter(id=user_id)
+        serializer = LeaveSerializer(user, many=True)
+        return Response(serializer.data)
+
 class GetSalView(APIView):
         def post(self,request,format=None):
             # sentence = word_tokenize(request.data['sentence'])
@@ -42,8 +49,9 @@ class GetSalView(APIView):
             for i, j in tokens_tag:
                  if (j == "NN" or j =="JJ"):
                      salary_param.append(i)
+            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getempleave/')
                      #ss = json.load(salary_param)
-            return Response(salary_param)
+            return Response(r)
             # name = request.data['name']
             # something = Employee.objects.filter(name=name).values()
             # myarr = sent_tokenize(sentence)
@@ -59,25 +67,13 @@ class LeaveAddView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class LeaveView(APIView):
-    # def post(self, request, format=None):
-    #     user_id = request.data['id']
-    #     user = Leave.objects.filter(id=user_id)
-    #     #users = Leave.objects.all()
-    #     serializer = LeaveSerializer(user, many=True)
-    #     return Response(serializer.data)
     def get(self,request,format=None):
-
         users = Leave.objects.all()
         serializer = LeaveSerializer(users, many=True)
         return Response(serializer.data)
+
     def post(self,request,format=None):
-        type = request.data['type']
-        days = request.data['days']
-        balance = request.data['balance']
-        empid  = request.data['empid']
         r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/addleave/', data=request.data)
-        # post_data = [('type',type),('days',days),('balance',balance),('empid',empid)]
-        #
-        # result =urllib.request.urlopen("https://peaceful-shore-77889.herokuapp.com/employee/addleave/",urllib.parse.urlencode(post_data))
-        # content =result.read()
         return Response(r)
+
+
