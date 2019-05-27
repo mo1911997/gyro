@@ -8,6 +8,8 @@ from requests import request
 from .serializers import *
 from rest_framework.response import Response
 import nltk
+import httplib2
+import urllib
 
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
@@ -71,6 +73,7 @@ class LeaveView(APIView):
         empid  = request.data['empid']
 
         post_data = {'type':type,'days':days,'balance':balance,'empid':empid}
-        # res = request.post("https://peaceful-shore-77889.herokuapp.com/employee/addleave",data=post_data)
-        result = urlopen("https://peaceful-shore-77889.herokuapp.com/employee/addleave",post_data)
+        body = urllib.urlencode(post_data)
+        h = httplib2.Http()
+        result = h.request("https://peaceful-shore-77889.herokuapp.com/employee/addleave/",method="POST",body=body)
         return Response(result)
