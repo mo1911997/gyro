@@ -4,7 +4,7 @@ from .models import Employee
 from rest_framework import status
 import json
 from urllib.request import urlopen
-from requests import request
+import requests
 from .serializers import *
 from rest_framework.response import Response
 import nltk
@@ -71,9 +71,9 @@ class LeaveView(APIView):
         days = request.data['days']
         balance = request.data['balance']
         empid  = request.data['empid']
-
-        post_data = [('type',type),('days',days),('balance',balance),('empid',empid)]
-
-        result =urllib.request.urlopen("https://peaceful-shore-77889.herokuapp.com/employee/addleave/",urllib.parse.urlencode(post_data))
-        content =result.read()
-        return Response(content)
+        r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/addleave/', data=request.data)
+        # post_data = [('type',type),('days',days),('balance',balance),('empid',empid)]
+        #
+        # result =urllib.request.urlopen("https://peaceful-shore-77889.herokuapp.com/employee/addleave/",urllib.parse.urlencode(post_data))
+        # content =result.read()
+        return Response(r)
