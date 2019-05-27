@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ad9ae29e-9d8c-47a3-96ca-0a05dcb439b3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employee/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/employee/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/employee/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="74" column="77" selection-start-line="74" selection-start-column="77" selection-end-line="74" selection-end-column="77" />
+            <state relative-caret-position="192">
+              <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -159,13 +160,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558636176036</updated>
-    </task>
-    <task id="LOCAL-00005" summary="updated nlp function">
-      <created>1558638496747</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1558638496747</updated>
     </task>
     <task id="LOCAL-00006" summary="updated nlp function">
       <created>1558638774105</created>
@@ -503,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558936184692</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="get all leave view 6">
+      <created>1558936474647</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1558936474648</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -540,7 +541,8 @@
     <MESSAGE value="get all leave view 3" />
     <MESSAGE value="get all leave view 4" />
     <MESSAGE value="get all leave view 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="get all leave view 5" />
+    <MESSAGE value="get all leave view 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="get all leave view 6" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/gyro/views.py">
@@ -624,8 +626,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/employee/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="74" column="77" selection-start-line="74" selection-start-column="77" selection-end-line="74" selection-end-column="77" />
+        <state relative-caret-position="192">
+          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
