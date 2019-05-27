@@ -46,11 +46,12 @@ class GetSalView(APIView):
             empid = request.data['empid']
             tokens_tag = pos_tag(word_tokenize(sentence))
             output = ne_chunk(tokens_tag)
+            r = None
             salary_param = []
             for i, j in tokens_tag:
                  if (j == "NN" or j =="JJ"):
                      salary_param.append(i)
-            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getempleave/',data = request.data)
+                     r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getempleave/',data = request.data)
                      #ss = json.load(salary_param)
             return Response(r)
             # name = request.data['name']
