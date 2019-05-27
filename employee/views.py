@@ -65,7 +65,11 @@ class LeaveView(APIView):
     #     #users = Leave.objects.all()
     #     serializer = LeaveSerializer(user, many=True)
     #     return Response(serializer.data)
+    def get(self,request,format=None):
 
+        users = Leave.objects.all()
+        serializer = LeaveSerializer(users, many=True)
+        return Response(serializer.data)
     def post(self,request,format=None):
         type = request.data['type']
         days = request.data['days']
