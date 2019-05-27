@@ -9,7 +9,7 @@ from .serializers import *
 from rest_framework.response import Response
 import nltk
 import httplib2
-import urllib
+import urllib.parse
 
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
