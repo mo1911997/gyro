@@ -72,8 +72,8 @@ class LeaveView(APIView):
         balance = request.data['balance']
         empid  = request.data['empid']
 
-        post_data = {'type':type,'days':days,'balance':balance,'empid':empid}
-        body = urllib.parse.urlencode(post_data)
-        h = httplib2.Http()
-        result = h.request("https://peaceful-shore-77889.herokuapp.com/employee/addleave/",method="POST",body=body)
-        return Response(result)
+        post_data = [('type',type),('days',days),('balance',balance),('empid',empid)]
+
+        result =urllib.request.urlopen("https://peaceful-shore-77889.herokuapp.com/employee/addleave/",urllib.parse.urlencode(post_data))
+        content =result.read()
+        return Response(content)
