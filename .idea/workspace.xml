@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad9ae29e-9d8c-47a3-96ca-0a05dcb439b3" name="Default Changelist" comment="" />
+    <list default="true" id="ad9ae29e-9d8c-47a3-96ca-0a05dcb439b3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/employee/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="57" column="41" lean-forward="true" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+            <state relative-caret-position="322">
+              <caret line="46" column="57" lean-forward="true" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -157,20 +159,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558636176036</updated>
-    </task>
-    <task id="LOCAL-00018" summary="updated nlp function">
-      <created>1558710447246</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1558710447246</updated>
-    </task>
-    <task id="LOCAL-00019" summary="updated nlp function">
-      <created>1558710750952</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1558710750952</updated>
     </task>
     <task id="LOCAL-00020" summary="updated nlp function">
       <created>1558710926106</created>
@@ -501,7 +489,21 @@
       <option name="project" value="LOCAL" />
       <updated>1558941612475</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="get employee leave">
+      <created>1558943949928</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1558943949928</updated>
+    </task>
+    <task id="LOCAL-00068" summary="get one employee leave">
+      <created>1558944106375</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1558944106375</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -565,7 +567,8 @@
     <MESSAGE value="get all leave view 11" />
     <MESSAGE value="get all leave view 12" />
     <MESSAGE value="get employee leave" />
-    <option name="LAST_COMMIT_MESSAGE" value="get employee leave" />
+    <MESSAGE value="get one employee leave" />
+    <option name="LAST_COMMIT_MESSAGE" value="get one employee leave" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/gyro/views.py">
@@ -649,8 +652,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/employee/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="57" column="41" lean-forward="true" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+        <state relative-caret-position="322">
+          <caret line="46" column="57" lean-forward="true" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
