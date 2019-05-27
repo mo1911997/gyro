@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from .models import Employee
 from rest_framework import status
 import json
+from urllib.request import urlopen
 from requests import request
 from .serializers import *
 from rest_framework.response import Response
@@ -69,6 +70,7 @@ class LeaveView(APIView):
         balance = request.data['balance']
         empid  = request.data['empid']
 
-        post_data = {'type':type,'days':days,'balance':balance,'empid':empid}
-        res = request.post("https://peaceful-shore-77889.herokuapp.com/employee/addleave",data=post_data)
-        return Response(res)
+        post_data = [('type',type),('days',days),('balance',balance),('empid',empid)]
+        # res = request.post("https://peaceful-shore-77889.herokuapp.com/employee/addleave",data=post_data)
+        result = urlopen("https://peaceful-shore-77889.herokuapp.com/employee/addleave",post_data)
+        return Response(result)
