@@ -8,7 +8,7 @@ from requests import request
 from .serializers import *
 from rest_framework.response import Response
 import nltk
-import httplib2
+
 import urllib.parse
 
 nltk.download('averaged_perceptron_tagger')
