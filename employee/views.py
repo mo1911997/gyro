@@ -56,7 +56,7 @@ class GetSalView(APIView):
             return Response(r)
             # name = request.data['name']
             # something = Employee.objects.filter(name=name).values()
-            # myarr = sent_tokenize(sentence)
+            # myarr = sent_tokenize(sentenc/e)
             # serializer = SalarySerializer(data=request.data)
             # return Response(c[0] for c in entities)
 
@@ -72,10 +72,26 @@ class LeaveView(APIView):
     def get(self,request,format=None):
         users = Leave.objects.all()
         serializer = LeaveSerializer(users, many=True)
-        return Response(serializer.data)
+        list = []
+        list = serializer.data
+        return Response(list[0])
 
     def post(self,request,format=None):
         r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/addleave/', data=request.data)
         return Response(r)
+
+class LeaveApply(APIView):
+    def post(self, request, format=None):
+        sentence = request.data['sentence']
+        tokens_tag = pos_tag(word_tokenize(sentence))
+        for i, j in tokens_tag:
+            if (i == "leave"):
+                if (j == "NN"):
+                    return Response("what type of leave?")
+                else:
+                    return Response("thankk you")
+
+
+
 
 
