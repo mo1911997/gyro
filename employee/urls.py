@@ -1,6 +1,6 @@
 
 from django.urls import path,include
-from .views import EmployeeView,GetSalView,EmployeeAddView,LeaveAddView,LeaveView,GetEmployeeLeaveView
+from .views import EmployeeView,GetSalView,EmployeeAddView,LeaveAddView,LeaveView,GetEmployeeLeaveView,LeaveApply
 
 urlpatterns = [
 
@@ -9,5 +9,6 @@ urlpatterns = [
     path('getsal/',GetSalView.as_view()),
     path('addleave/',LeaveAddView.as_view()),
     path('getleave/',LeaveView.as_view()),
-    path('getempleave/',GetEmployeeLeaveView.as_view())
+    path('getempleave/',GetEmployeeLeaveView.as_view()),
+    path('getleaveconv/',LeaveApply.as_view())
 ]

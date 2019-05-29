@@ -81,6 +81,13 @@ class LeaveView(APIView):
         return Response(r)
 
 class LeaveApply(APIView):
+    def post(self,request,format=None):
+        serializer = LeaveConSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
     def get(self, request, format=None):
         users = LeaveConverseResponses.objects.all()
         serializer = LeaveConSerializer(users, many=True)
