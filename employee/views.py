@@ -9,7 +9,8 @@ from .serializers import *
 from rest_framework.response import Response
 import nltk
 import urllib.parse
-
+global rr
+rr = 0
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 nltk.download('maxent_ne_chunker')
@@ -89,7 +90,7 @@ class LeaveApply(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, format=None):
-        rr=0
+
         rr+=1
         users = LeaveConverseResponses.objects.all()
         serializer = LeaveConSerializer(users, many=True)
