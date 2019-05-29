@@ -77,6 +77,7 @@ class LeaveView(APIView):
         return Response(list[0])
 
     def post(self,request,format=None):
+        sentence = request.data['sentence']
         r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/addleaveconv/')
         return Response(r)
 
