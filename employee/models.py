@@ -13,3 +13,6 @@ class Leave(models.Model):
     days = models.IntegerField()
     balance = models.IntegerField()
     empid = models.ForeignKey(Employee,on_delete=models.CASCADE)
+
+class LeaveConverseResponses(models.Model):
+    sentence = models.CharField(max_length=400)

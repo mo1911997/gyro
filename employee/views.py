@@ -8,7 +8,7 @@ import requests
 from .serializers import *
 from rest_framework.response import Response
 import nltk
-
+global rr
 import urllib.parse
 
 nltk.download('averaged_perceptron_tagger')
@@ -81,15 +81,14 @@ class LeaveView(APIView):
         return Response(r)
 
 class LeaveApply(APIView):
-    def post(self, request, format=None):
-        sentence = request.data['sentence']
-        tokens_tag = pos_tag(word_tokenize(sentence))
-        for i, j in tokens_tag:
-            if (i == "leave"):
-                if (j == "NN"):
-                    return Response("what type of leave?")
-                else:
-                    return Response("thankk you")
+    def get(self, request, format=None):
+        users = LeaveConverseResponses.objects.all()
+        serializer = LeaveConSerializer(users, many=True)
+        list = []
+        list = serializer.data
+        return Response(list[rr])
+
+
 
 
 
