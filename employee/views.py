@@ -77,7 +77,7 @@ class LeaveView(APIView):
         return Response(list[0])
 
     def post(self,request,format=None):
-        r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/addleave/', data=request.data)
+        r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/addleaveconv/')
         return Response(r)
 
 class LeaveApply(APIView):
@@ -89,6 +89,7 @@ class LeaveApply(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, format=None):
+        rr+=1
         users = LeaveConverseResponses.objects.all()
         serializer = LeaveConSerializer(users, many=True)
         list = []
