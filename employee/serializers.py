@@ -13,9 +13,9 @@ class LeaveSerializer(serializers.ModelSerializer):
 class Leave2Serializer(serializers.ModelSerializer):
     class Meta:
         model = Leave
-        fields = "type","balance"
+        fields = ('type','balance')
 
 class LeaveConSerializer(serializers.ModelSerializer):
     class Meta:
         model = LeaveConverseResponses
-        fields = 'sentence'
+        fields = ('sentence')
