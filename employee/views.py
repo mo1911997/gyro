@@ -91,8 +91,6 @@ class LeaveApply(APIView):
     def get(self, request, format=None):
         id = 0
         id+=1
-        request.session[id] = id
-        var = request.session['id']
         users = LeaveConverseResponses.objects.all()
         serializer = LeaveConSerializer(users, many=True)
         list = []
