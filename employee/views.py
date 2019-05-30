@@ -95,18 +95,14 @@ class LeaveApply(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, format=None):
-        try:
-            global id
-            id+=1
-            users = LeaveConverseResponses.objects.all()
-            serializer = LeaveConSerializer(users, many=True)
-            list = []
-            list = serializer.data
-            length = len(list)
-            if(id == length):
-                id = -1
-                return Response("thank you")
-        except IndexError:
+        global id
+        id+=1
+        users = LeaveConverseResponses.objects.all()
+        serializer = LeaveConSerializer(users, many=True)
+        list = []
+        list = serializer.data
+        length = len(list)
+        if(id == length):
             id = -1
             return Response("thank you")
         return Response(list[id])

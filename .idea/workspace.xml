@@ -16,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/employee/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="832">
-              <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
+            <state>
+              <caret lean-forward="true" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -148,20 +148,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558636176036</updated>
-    </task>
-    <task id="LOCAL-00057" summary="get all leave view 9">
-      <created>1558937086710</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1558937086710</updated>
-    </task>
-    <task id="LOCAL-00058" summary="get all leave view 10">
-      <created>1558937155428</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1558937155429</updated>
     </task>
     <task id="LOCAL-00059" summary="get all leave view 11">
       <created>1558937479548</created>
@@ -492,7 +478,21 @@
       <option name="project" value="LOCAL" />
       <updated>1559203689413</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="demo  test converse">
+      <created>1559204360368</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1559204360368</updated>
+    </task>
+    <task id="LOCAL-00107" summary="demo  test converse">
+      <created>1559204857666</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1559204857666</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -643,8 +643,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/employee/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="832">
-          <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
+        <state>
+          <caret lean-forward="true" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
