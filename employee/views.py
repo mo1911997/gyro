@@ -77,7 +77,13 @@ class LeaveView(APIView):
 
     def post(self,request,format=None):
         sentence = request.data['sentence']
-        r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
+        tokens_tag = pos_tag(word_tokenize(sentence))
+        output = ne_chunk(tokens_tag)
+        r = None
+        for i, j in tokens_tag:
+            if(i=="leave"):
+                if (j == "NN"):
+                    r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
         return Response(r)
 
 class LeaveApply(APIView):
@@ -97,6 +103,9 @@ class LeaveApply(APIView):
             list = []
             list = serializer.data
             length = len(list)
+            if(id == length):
+                id = -1
+                return Response("thank you")
         except IndexError:
             id = -1
             return Response("thank you")
