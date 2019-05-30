@@ -103,11 +103,7 @@ class LeaveApply(APIView):
             list = []
             list = serializer.data
             length = len(list)
-            # if (id < length):
             return Response(list[id])
-            # else:
-            #     id = -1
-            #     return Response("thank you")
         except IndexError:
             id = -1
             return Response("thank you")

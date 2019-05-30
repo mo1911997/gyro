@@ -18,4 +18,4 @@ class Leave2Serializer(serializers.ModelSerializer):
 class LeaveConSerializer(serializers.ModelSerializer):
     class Meta:
         model = LeaveConverseResponses
-        fields = ["sentence"]
+        fields = 'sentence'
