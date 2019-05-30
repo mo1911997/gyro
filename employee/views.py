@@ -96,7 +96,7 @@ class LeaveApply(APIView):
         list = []
         list = serializer.data
         length = len(list)
-        if(id==length):
+        if(id==length+1):
             id=0
         return Response(list[id])
 
