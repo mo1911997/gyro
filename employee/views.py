@@ -88,8 +88,8 @@ class LeaveApply(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, format=None):
-        request.session[id] = 1
-        var = request.session[id]
+        request.session['id'] = 1
+        var = request.session['id']
         request.session['id'] = var + 1
         users = LeaveConverseResponses.objects.all()
         serializer = LeaveConSerializer(users, many=True)
