@@ -95,6 +95,9 @@ class LeaveApply(APIView):
         serializer = LeaveConSerializer(users, many=True)
         list = []
         list = serializer.data
+        length = len(list)
+        if(id==length):
+            id=0
         return Response(list[id])
 
 
