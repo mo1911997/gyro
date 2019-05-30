@@ -9,8 +9,6 @@ from .serializers import *
 from rest_framework.response import Response
 import nltk
 import urllib.parse
-global rr
-rr = 0
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 nltk.download('maxent_ne_chunker')
@@ -77,6 +75,7 @@ class LeaveView(APIView):
         return Response(list[0])
 
     def post(self,request,format=None):
+        request.session['id'] = 0
         sentence = request.data['sentence']
         r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
         return Response(r)
@@ -90,13 +89,13 @@ class LeaveApply(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, format=None):
-
-        rr+=1
+        id=request.session['id']
+        id +=1
         users = LeaveConverseResponses.objects.all()
         serializer = LeaveConSerializer(users, many=True)
         list = []
         list = serializer.data
-        return Response(list[rr])
+        return Response(list[id])
 
 
 
