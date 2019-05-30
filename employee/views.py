@@ -109,6 +109,7 @@ class LeaveApply(APIView):
             #     id = -1
             #     return Response("thank you")
         except IndexError:
+            id = -1
             return Response("thank you")
 
 
