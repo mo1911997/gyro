@@ -8,8 +8,9 @@ import requests
 from .serializers import *
 from rest_framework.response import Response
 import nltk
-import itertools
-counter = itertools.count()
+import threading
+iid = 0
+iid_lock = threading.Lock()
 import urllib.parse
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
@@ -98,11 +99,13 @@ class LeaveApply(APIView):
 
     def get(self, request, format=None):
         try:
-            id = counter.next()
-            users = LeaveConverseResponses.objects.all()
-            serializer = LeaveConSerializer(users, many=True)
-            list = serializer.data
-            return Response(list[id])
+            global iid
+            with iid_lock:
+                iid = iid + 1
+                users = LeaveConverseResponses.objects.all()
+                serializer = LeaveConSerializer(users, many=True)
+                list = serializer.data
+            return Response(list[iid])
         except IndexError:
             return Response("thank you")
 
