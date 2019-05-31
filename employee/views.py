@@ -104,7 +104,7 @@ class LeaveApply(APIView):
             list = serializer.data
             return Response(list)
         except IndexError:
-            id = -1
+            id = -1 
             return Response("thank you")
 
 
