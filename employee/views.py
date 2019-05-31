@@ -8,7 +8,7 @@ import requests
 from .serializers import *
 from rest_framework.response import Response
 import nltk
-
+i = -1
 import urllib.parse
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
@@ -71,9 +71,8 @@ class LeaveView(APIView):
     def get(self,request,format=None):
         users = Leave.objects.all()
         serializer = LeaveSerializer(users, many=True)
-        list = []
         list = serializer.data
-        return Response(list[0])
+        return Response(list)
 
     def post(self,request,format=None):
         sentence = request.data['sentence']
@@ -87,8 +86,6 @@ class LeaveView(APIView):
         return Response(r)
 
 class LeaveApply(APIView):
-    def __init__(self):
-        id = -1
 
     def post(self,request,format=None):
         serializer = LeaveConSerializer(data=request.data)
@@ -106,7 +103,7 @@ class LeaveApply(APIView):
             list = serializer.data
             return Response(list[id])
         except IndexError:
-            id = -1
-            return Response("thank you")
+            r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleave/')
+            return Response(r)
 
 
