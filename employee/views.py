@@ -104,7 +104,7 @@ class LeaveApply(APIView):
             list = serializer.data
             return Response(list[id])
         except IndexError:
-            r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleave/')
-            return Response(r)
+            id = -1
+            return Response("thank you")
 
 
