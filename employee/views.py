@@ -9,7 +9,7 @@ from .serializers import *
 from rest_framework.response import Response
 import nltk
 import threading
-iid = 0
+iid = -1
 iid_lock = threading.Lock()
 import urllib.parse
 nltk.download('averaged_perceptron_tagger')
@@ -107,6 +107,7 @@ class LeaveApply(APIView):
                 list = serializer.data
             return Response(list[iid])
         except IndexError:
+            iid = -1
             return Response("thank you")
 
 
