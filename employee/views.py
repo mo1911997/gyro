@@ -102,9 +102,9 @@ class LeaveApply(APIView):
             serializer = LeaveConSerializer(users, many=True)
             json_obj = serializer.data
             list = json.loads(json_obj)
-            if(list.get('id') == id):
-                str = list.get('sentence')
-                return Response(str)
+            #if(list.get('id') == id):
+            #   str = list.get('sentence')
+            return Response(id)
         except IndexError:
             id = -1
             return Response("thank you")
