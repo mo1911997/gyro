@@ -8,7 +8,7 @@ import requests
 from .serializers import *
 from rest_framework.response import Response
 import nltk
-i = -1
+id = -1
 import urllib.parse
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
@@ -59,7 +59,7 @@ class GetSalView(APIView):
             # serializer = SalarySerializer(data=request.data)
             # return Response(c[0] for c in entities)
 
-class LeaveAddView(APIView):
+class LeaveView(APIView):
     def post(self, request, format=None):
         serializer = LeaveSerializer(data=request.data)
         if serializer.is_valid():
@@ -67,12 +67,13 @@ class LeaveAddView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class LeaveView(APIView):
-    def get(self,request,format=None):
+    def get(self, request, format=None):
         users = Leave.objects.all()
         serializer = LeaveSerializer(users, many=True)
         list = serializer.data
         return Response(list)
+
+class LeaveAddView(APIView):
 
     def post(self,request,format=None):
         sentence = request.data['sentence']
@@ -97,7 +98,7 @@ class LeaveApply(APIView):
     def get(self, request, format=None):
         try:
             global id
-            id +=1
+            id += 1
             users = LeaveConverseResponses.objects.all()
             serializer = LeaveConSerializer(users, many=True)
             list = serializer.data
