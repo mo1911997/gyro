@@ -103,7 +103,7 @@ class LeaveApply(APIView):
             list = serializer.data
             #if(list.get('id') == id):
             #   str = list.get('sentence')
-            return Response(id)
+            return Response(list[id])
         except IndexError:
             id = -1
             return Response("thank you")
