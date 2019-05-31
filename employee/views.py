@@ -100,8 +100,10 @@ class LeaveApply(APIView):
             id+=1
             users = LeaveConverseResponses.objects.all()
             serializer = LeaveConSerializer(users, many=True)
-            list = serializer.data
-            return Response(list[id])
+            json_obj = serializer.data
+            list = json.loads(json_obj)
+            if(list.get('id') == id):
+                return Response(list.get('sentence'))
         except IndexError:
             id = -1
             return Response("thank you")
