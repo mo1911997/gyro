@@ -88,7 +88,6 @@ class LeaveView(APIView):
 
 class LeaveApply(APIView):
     def __init__(self):
-        global id
         id = -1
 
     def post(self,request,format=None):
@@ -100,6 +99,7 @@ class LeaveApply(APIView):
 
     def get(self, request, format=None):
         try:
+            global id
             id +=1
             users = LeaveConverseResponses.objects.all()
             serializer = LeaveConSerializer(users, many=True)
