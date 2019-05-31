@@ -107,7 +107,7 @@ class LeaveApply(APIView):
             ll = []
             for i in list:
                 ll.append(i)
-            return Response(ll[id])
+            return Response(str(ll[id]))
         except IndexError:
             iid = -1
             return Response("thank you")
