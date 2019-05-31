@@ -103,17 +103,10 @@ class LeaveApply(APIView):
             json_obj = serializer.data
             list = json.loads(json_obj)
             if(list.get('id') == id):
-                return Response(list.get('sentence'))
+                str = list.get('sentence')
+                return Response(str)
         except IndexError:
             id = -1
             return Response("thank you")
-
-
-
-
-
-
-
-
 
 
