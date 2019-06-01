@@ -104,9 +104,7 @@ class LeaveApply(APIView):
             users = LeaveConverseResponses.objects.all()
             serializer = LeaveConSerializer(users, many=True)
             list = serializer.data
-            str = list.get('id')
-            if(str == id):
-                return Response(list[id])
+            return Response(list[id])
         except IndexError:
             iid = -1
             return Response("thank you")
