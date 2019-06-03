@@ -9,7 +9,7 @@ from .serializers import *
 from rest_framework.response import Response
 import nltk
 import threading
-iid = 0
+iid = -1
 import urllib.parse
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
@@ -102,11 +102,14 @@ class LeaveApply(APIView):
             users = LeaveConverseResponses.objects.all()
             serializer = LeaveConSerializer(users, many=True)
             list = serializer.data
-            str = list[iid]
-            iid += 1
-            return Response(str)
+            list2 = []
+            for user in users:
+                list2.append(list[user])
+            #str = list[iid]
+            iid = iid + 1
+            return Response(list2[iid])
         except IndexError:
-            iid = 0
+            iid = -1
             return Response("thank you")
 
 
