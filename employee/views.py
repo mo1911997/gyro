@@ -105,6 +105,7 @@ class LeaveApply(APIView):
             list2 = []
             iid = iid + 1
             str2 = type(list)
+            print(str2)
             return Response(str2)
         except IndexError:
             iid = 0
