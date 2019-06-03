@@ -103,11 +103,12 @@ class LeaveApply(APIView):
             serializer = LeaveConSerializer(users, many=True)
             list = serializer.data
             list2 = []
-            for user in list:
-                list2.append(list[user])
-            #str = list[iid]
+            for i in list:
+                str = list[i]
+                list2.append(str)
             iid = iid + 1
-            return Response(list2[iid])
+            str2 = list2[iid]
+            return Response(str2)
         except IndexError:
             iid = 0
             return Response("thank you")
