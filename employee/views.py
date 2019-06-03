@@ -10,7 +10,7 @@ from rest_framework.response import Response
 import nltk
 import sys
 import threading
-iid = 0
+iid = -1
 import urllib.parse
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
@@ -100,16 +100,13 @@ class LeaveApply(APIView):
     def get(self, request, format=None):
         try:
             global iid
+            iid = iid + 1
             users = LeaveConverseResponses.objects.all()
             serializer = LeaveConSerializer(users, many=True)
             list = serializer.data
-            list2 = []
-            iid = iid + 1
-            str2 = type(list)
-            print('%s',str2)
-            return Response(str2)
+            return Response(list[iid])
         except IndexError:
-            iid = 0
+            iid = -1
             return Response("thank you")
 
 
