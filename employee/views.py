@@ -104,7 +104,7 @@ class LeaveApply(APIView):
             list = serializer.data
             list2 = []
             for user in users:
-                list2.append(list[user])
+                list2.append(users[user])
             #str = list[iid]
             iid = iid + 1
             return Response(list2[iid])
