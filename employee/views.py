@@ -39,7 +39,7 @@ class GetEmployeeLeaveView(APIView):
         user_id = request.data['empid']
         user = Leave.objects.filter(empid=user_id)
         serializer = Leave2Serializer(user, many=True)
-        return Response(serializer.data) 
+        return Response(serializer.data)
 
 class GetSalView(APIView):
         def post(self,request,format=None):
@@ -87,8 +87,8 @@ class LeaveAddView(APIView):
         #     if(i=="leave"):
         #         if(j == "NN"):
         #             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
-        r = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
-        return Response(r)
+        response = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
+        return response
 
 class LeaveApply(APIView):
 
