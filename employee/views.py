@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from rest_framework.views import APIView
 from .models import Employee
-from django.shortcuts import redirect
+from django.shortcuts import redirect,render
 from rest_framework import status
 import json
 from urllib.request import urlopen
@@ -87,7 +87,7 @@ class LeaveAddView(APIView):
             if(i=="leave"):
                 if(j == "NN"):
                     #r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
-                    response = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
+                    response = render('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
         return response
 
 class LeaveApply(APIView):
