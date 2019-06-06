@@ -39,7 +39,7 @@ class GetEmployeeLeaveView(APIView):
         user_id = request.data['empid']
         user = Leave.objects.filter(empid=user_id)
         serializer = Leave2Serializer(user, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data) 
 
 class GetSalView(APIView):
         def post(self,request,format=None):
