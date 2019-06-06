@@ -87,7 +87,7 @@ class LeaveAddView(APIView):
             if(i=="leave"):
                 if(j == "NN"):
                     #r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
-                    response = render(request,'https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
+                    response = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
         return response
 
 class LeaveApply(APIView):
