@@ -9,9 +9,7 @@ import requests
 from .serializers import *
 from rest_framework.response import Response
 import nltk
-import sys
-import threading
-import urllib.parse
+iid = -1
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 nltk.download('maxent_ne_chunker')
@@ -91,7 +89,7 @@ class LeaveAddView(APIView):
         return Response(r)
 
 class LeaveApply(APIView):
-    iid = -1
+
     def post(self,request,format=None):
         serializer = LeaveConSerializer(data=request.data)
         if serializer.is_valid():
