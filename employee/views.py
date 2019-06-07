@@ -77,11 +77,12 @@ class LeaveAddView(APIView):
 
     def post(self,request,format=None):
         sentence = request.data['sentence']
-        tokens_tag = pos_tag(word_tokenize(sentence))
+        tokens_tag = word_tokenize(sentence)
+        poss_tag = pos_tag(tokens_tag)
         output = ne_chunk(tokens_tag)
         #response = None
         r = None
-        for i, j in tokens_tag:
+        for i, j in poss_tag:
             if(i=="leave"):
                 if(j == "NN"):
                     r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
