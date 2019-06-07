@@ -9,14 +9,17 @@ import requests
 from .serializers import *
 from rest_framework.response import Response
 import nltk
-iid = -1
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 nltk.download('maxent_ne_chunker')
 nltk.download('words')
 from nltk import ne_chunk
 from nltk import pos_tag
+from nltk import RegexpParser
 from nltk import word_tokenize
+
+iid = -1
+
 class EmployeeView(APIView):
     def get(self, request, format=None):
         users = Employee.objects.all()
@@ -79,12 +82,15 @@ class LeaveAddView(APIView):
         sentence = request.data['sentence']
         tokens_tag = word_tokenize(sentence)
         poss_tag = pos_tag(tokens_tag)
-        output = ne_chunk(tokens_tag)
-        #response = None
+        grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<NN>}"
+        # grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<JJ>?<NN>}"
+        # grammar = "NP: {<DT|PP\$>?<JJ>*<NN>}"
+        # response = None
+        cp = nltk.RegexpParser(grammar)
+        result = cp.parse(poss_tag)
         r = None
-        for i, j in poss_tag:
-            if(i=="leave"):
-                if(j == "NN"):
+        for npstr in extract_np(result):
+                if(npstr == "apply for leave"):
                     r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
                     #response = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
         return Response(r)
@@ -111,3 +117,7 @@ class LeaveApply(APIView):
             return Response("thank you")
 
 
+def extract_np(psent):
+    for subtree in psent.subtrees():
+        if subtree.label() == 'NP':
+            yield ' '.join(word for word, tag in subtree.leaves())
