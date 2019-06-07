@@ -11,7 +11,6 @@ from rest_framework.response import Response
 import nltk
 import sys
 import threading
-iid = -1
 import urllib.parse
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
@@ -82,16 +81,17 @@ class LeaveAddView(APIView):
         sentence = request.data['sentence']
         tokens_tag = pos_tag(word_tokenize(sentence))
         output = ne_chunk(tokens_tag)
-        response = None
+        #response = None
+        r = None
         for i, j in tokens_tag:
             if(i=="leave"):
                 if(j == "NN"):
-                    #r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
-                    response = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
-        return response
+                    r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
+                    #response = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
+        return Response(r)
 
 class LeaveApply(APIView):
-
+    iid = -1
     def post(self,request,format=None):
         serializer = LeaveConSerializer(data=request.data)
         if serializer.is_valid():
