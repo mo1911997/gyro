@@ -24,8 +24,10 @@ flag = 0
 
 class EmployeeView(APIView):
     def get(self, request, format=None):
-        users = Employee.objects.all()
-        serializer = EmployeeSerializer(users,many=True)
+        #users = Employee.objects.all()
+        user_id = request.data['empid']
+        user = Employee.objects.filter(id=user_id)
+        serializer = EmployeeSerializer(user,many=True)
         return Response(serializer.data)
     def post(self, request, format=None):
         serializer = EmployeeSerializer(data=request.data)
