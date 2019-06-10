@@ -92,7 +92,7 @@ class LeaveAddView(APIView):
         elif(flag == 2):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/')
         else:
-            None
+            print(None)
         return Response(r)
 
 class LeaveApply(APIView):
@@ -136,4 +136,8 @@ def entity_extraction(sentence):
     for npstr in result2:
         if(npstr == "apply for leave"):
             flag = 1
+        elif(npstr == "profile"):
+            flag = 2
+        else:
+            break
 
