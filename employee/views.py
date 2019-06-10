@@ -83,6 +83,7 @@ class LeaveAddView(APIView):
 
     def post(self,request,format=None):
         sentence = request.data['sentence']
+        empid = request.dat['eid']
         global flag
         r = None
         if (flag == 0):
