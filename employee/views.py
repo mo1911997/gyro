@@ -19,6 +19,7 @@ from nltk import RegexpParser
 from nltk import word_tokenize
 
 iid = -1
+flag = 0
 
 class EmployeeView(APIView):
     def get(self, request, format=None):
@@ -80,19 +81,14 @@ class LeaveAddView(APIView):
 
     def post(self,request,format=None):
         sentence = request.data['sentence']
-        tokens_tag = word_tokenize(sentence)
-        poss_tag = pos_tag(tokens_tag)
-        grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<NN>}"
-        # grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<JJ>?<NN>}"
-        # grammar = "NP: {<DT|PP\$>?<JJ>*<NN>}"
+        global flag
         response = None
-        cp = nltk.RegexpParser(grammar)
-        result = cp.parse(poss_tag)
-        r = None
-        for npstr in extract_np(result):
-                if(npstr == "apply for leave"):
-                    #r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
-                    response = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
+        result = None
+        if (flag == 0):
+            entity_extraction(sentence)
+        elif(flag == 1):
+                #r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
+                response = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
         return response
 
 class LeaveApply(APIView):
@@ -106,7 +102,7 @@ class LeaveApply(APIView):
 
     def get(self, request, format=None):
         try:
-            global iid
+            global iid,flag
             iid = iid + 1
             users = LeaveConverseResponses.objects.all()
             serializer = LeaveConSerializer(users, many=True)
@@ -114,6 +110,7 @@ class LeaveApply(APIView):
             return Response(list[iid])
         except IndexError:
             iid = -1
+            flag = 0
             return Response("thank you")
 
 
@@ -121,3 +118,17 @@ def extract_np(psent):
     for subtree in psent.subtrees():
         if subtree.label() == 'NP':
             yield ' '.join(word for word, tag in subtree.leaves())
+
+def entity_extraction(sentence):
+    global flag
+    tokens_tag = word_tokenize(sentence)
+    poss_tag = pos_tag(tokens_tag)
+    grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<NN>}"
+    # grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<JJ>?<NN>}"
+    # grammar = "NP: {<DT|PP\$>?<JJ>*<NN>}"
+    cp = nltk.RegexpParser(grammar)
+    result = cp.parse(poss_tag)
+    result2 = extract_np(result)
+    for npstr in result2:
+        if (npstr == "apply for leave"):
+            flag = 1
