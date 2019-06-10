@@ -90,7 +90,7 @@ class LeaveAddView(APIView):
         if(flag == 1):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
         elif(flag == 2):
-            r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getempleave/')
+            r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getempleave/', data = request.data)
         else:
             print("bo...")
         return Response(r)
