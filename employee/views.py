@@ -137,3 +137,7 @@ def entity_extraction(sentence):
     for npstr in result2:
         if (npstr == "apply for leave"):
             flag = 1
+        elif(npstr == "salary"):
+            flag = 2
+        else:
+            flag = 0
