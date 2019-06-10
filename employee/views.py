@@ -85,15 +85,15 @@ class LeaveAddView(APIView):
         grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<NN>}"
         # grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<JJ>?<NN>}"
         # grammar = "NP: {<DT|PP\$>?<JJ>*<NN>}"
-        # response = None
+        response = None
         cp = nltk.RegexpParser(grammar)
         result = cp.parse(poss_tag)
         r = None
         for npstr in extract_np(result):
                 if(npstr == "apply for leave"):
-                    r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
-                    #response = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
-        return Response(r)
+                    #r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
+                    response = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
+        return response
 
 class LeaveApply(APIView):
 
