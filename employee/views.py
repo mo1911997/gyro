@@ -27,14 +27,13 @@ class EmployeeView(APIView):
         users = Employee.objects.all()
         serializer = EmployeeSerializer(users,many=True)
         return Response(serializer.data)
-
-class EmployeeAddView(APIView):
     def post(self, request, format=None):
         serializer = EmployeeSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class GetEmployeeLeaveView(APIView):
     def post(self, request, format=None):
@@ -87,13 +86,13 @@ class LeaveAddView(APIView):
         result = None
         if (flag == 0):
             entity_extraction(sentence)
-        elif(flag == 1):
+        if(flag == 1):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
-                #response = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
+            #response = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
         elif(flag == 2):
-            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getempleave/', data=request.data)
+            r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/')
         else:
-            print("thank you")
+            None
         return Response(r)
 
 class LeaveApply(APIView):
@@ -135,9 +134,6 @@ def entity_extraction(sentence):
     result = cp.parse(poss_tag)
     result2 = extract_np(result)
     for npstr in result2:
-        if (npstr == "apply for leave"):
+        if(npstr == "apply for leave"):
             flag = 1
-        elif(npstr == "salary"):
-            flag = 2
-        else:
-            flag = 0
+
