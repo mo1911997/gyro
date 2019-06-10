@@ -24,12 +24,8 @@ flag = 0
 
 class EmployeeView(APIView):
     def get(self, request, format=None):
-        #users = Employee.objects.all()
-        global flag
-        user_id = request.data['empid']
-        user = Employee.objects.filter(id=user_id)
-        serializer = EmployeeSerializer(user,many=True)
-        flag = 0
+        users = Employee.objects.all()
+        serializer = EmployeeSerializer(users,many=True)
         return Response(serializer.data)
     def post(self, request, format=None):
         serializer = EmployeeSerializer(data=request.data)
@@ -41,9 +37,11 @@ class EmployeeView(APIView):
 
 class GetEmployeeLeaveView(APIView):
     def post(self, request, format=None):
+        global flag
         user_id = request.data['empid']
         user = Leave.objects.filter(empid=user_id)
         serializer = Leave2Serializer(user, many=True)
+        flag = 0
         return Response(serializer.data)
 
 class GetSalView(APIView):
@@ -92,7 +90,7 @@ class LeaveAddView(APIView):
         if(flag == 1):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
         elif(flag == 2):
-            r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/')
+            r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getempleave/')
         else:
             print("bo...")
         return Response(r)
