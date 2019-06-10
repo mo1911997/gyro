@@ -5,6 +5,7 @@ from django.shortcuts import redirect,render
 from rest_framework import status
 import json
 from urllib.request import urlopen
+import sys
 import requests
 from .serializers import *
 from rest_framework.response import Response
@@ -89,6 +90,8 @@ class LeaveAddView(APIView):
         elif(flag == 1):
                 #r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
                 response = redirect('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
+        else:
+            print("thank you")
         return response
 
 class LeaveApply(APIView):
