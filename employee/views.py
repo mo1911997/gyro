@@ -81,10 +81,10 @@ class MainView(APIView):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
         elif (flag == 2):
             r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getemp/', data = request.data)
-        elif (flag == 3):
-            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getsal/', data = request.data)
         elif (flag == 4):
-            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/', data = list[1:])
+            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getsal/', data = request.data)
+        elif (flag == 3):
+            r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getprofileconv')
         else:
             print("bo...")
         return Response(r)
@@ -121,10 +121,18 @@ class ProfileApply(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, format=None):
-        users = ProfileConverseResponses.objects.all()
-        serializer = ProfileConSerializer(users, many=True)
-        list = serializer.data
-        return Response(list)
+        try:
+            global iid,flag
+            iid = iid + 1
+            users = ProfileConverseResponses.objects.all()
+            serializer = ProfileConSerializer(users, many=True)
+            list = serializer.data
+            return Response(list[iid])
+        except IndexError:
+            iid = -1
+            flag = 0
+            return Response("thank you")
+
 
 
 def extract_np(psent):
