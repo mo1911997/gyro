@@ -4,7 +4,6 @@ from .models import Employee
 from django.shortcuts import redirect,render
 from rest_framework import status
 import json
-from urllib.request import urlopen
 import sys
 import requests
 from .serializers import *
