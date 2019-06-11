@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Employee,Leave,LeaveConverseResponses
+from .models import Employee,Leave,LeaveConverseResponses,ProfileConverseResponses
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
@@ -18,4 +18,9 @@ class Employee2Serializer(serializers.ModelSerializer):
 class LeaveConSerializer(serializers.ModelSerializer):
     class Meta:
         model = LeaveConverseResponses
+        fields = ['sentence']
+
+class ProfileConSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProfileConverseResponses
         fields = ['sentence']

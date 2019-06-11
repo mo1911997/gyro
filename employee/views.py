@@ -83,6 +83,8 @@ class MainView(APIView):
             r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getemp/', data = request.data)
         elif (flag == 3):
             r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getsal/', data = request.data)
+        elif (flag == 4):
+            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/', data = list[1:])
         else:
             print("bo...")
         return Response(r)
@@ -108,6 +110,15 @@ class LeaveApply(APIView):
             iid = -1
             flag = 0
             return Response("thank you")
+
+class ProfileApply(APIView):
+
+    def post(self,request,format=None):
+        serializer = ProfileConSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 def extract_np(psent):
