@@ -75,10 +75,12 @@ class MainView(APIView):
         r = None
         if (flag == 0):
             entity_extraction(sentence)
-        if(flag == 1):
+        if (flag == 1):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
-        elif(flag == 2):
+        elif (flag == 2):
             r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getemp/', data = request.data)
+        elif (flag == 3):
+            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getsal/', data=request.data)
         else:
             print("bo...")
         return Response(r)
@@ -122,10 +124,12 @@ def entity_extraction(sentence):
     result = cp.parse(poss_tag)
     result2 = extract_np(result)
     for npstr in result2:
-        if(npstr == "apply for leave"):
+        if (npstr == "apply for leave"):
             flag = 1
-        elif(npstr == "profile"):
+        elif (npstr == "profile"):
             flag = 2
+        elif (npstr == "salary"):
+            flag = 3
         else:
             print("yo...")
 
