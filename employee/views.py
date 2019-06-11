@@ -27,43 +27,13 @@ class EmployeeView(APIView):
         users = Employee.objects.all()
         serializer = EmployeeSerializer(users,many=True)
         return Response(serializer.data)
+
     def post(self, request, format=None):
         serializer = EmployeeSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class GetEmployeeLeaveView(APIView):
-    def post(self, request, format=None):
-        global flag
-        user_id = request.data['id']
-        user = Employee.objects.filter(id=user_id)
-        serializer = EmployeeSerializer(user, many=True)
-        flag = 0
-        return Response(serializer.data)
-
-class GetSalView(APIView):
-        def post(self,request,format=None):
-            # sentence = word_tokenize(request.data['sentence'])
-            sentence = request.data['sentence']
-            empid = request.data['empid']
-            tokens_tag = pos_tag(word_tokenize(sentence))
-            output = ne_chunk(tokens_tag)
-            r = None
-            salary_param = []
-            for i, j in tokens_tag:
-                 if (j == "NN" or j =="JJ"):
-                     salary_param.append(i)
-                     r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getempleave/',data = request.data)
-                     #ss = json.load(salary_param)
-            return Response(r)
-            # name = request.data['name']
-            # something = Employee.objects.filter(name=name).values()
-            # myarr = sent_tokenize(sentenc/e)
-            # serializer = SalarySerializer(data=request.data)
-            # return Response(c[0] for c in entities)
 
 class LeaveView(APIView):
     def post(self, request, format=None):
@@ -79,7 +49,25 @@ class LeaveView(APIView):
         list = serializer.data
         return Response(list)
 
-class LeaveAddView(APIView):
+class GetOneEmployeeView(APIView):
+    def post(self, request, format=None):
+        global flag
+        user_id = request.data['id']
+        user = Employee.objects.filter(id=user_id)
+        serializer = EmployeeSerializer(user, many=True)
+        flag = 0
+        return Response(serializer.data)
+
+class GetSalView(APIView):
+    def post(self,request,format=None):
+        global flag
+        user_id = request.data['id']
+        user = Employee.objects.filter(id=user_id)
+        serializer = Employee2Serializer(user, many=True)
+        flag = 0
+        return Response(serializer.data)
+
+class MainView(APIView):
 
     def post(self,request,format=None):
         sentence = request.data['sentence']

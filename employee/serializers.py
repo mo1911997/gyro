@@ -10,10 +10,10 @@ class LeaveSerializer(serializers.ModelSerializer):
         model = Leave
         fields = "__all__"
 
-class Leave2Serializer(serializers.ModelSerializer):
+class Employee2Serializer(serializers.ModelSerializer):
     class Meta:
-        model = Leave
-        fields = ["type","balance"]
+        model = Employee
+        fields = ["salary"]
 
 class LeaveConSerializer(serializers.ModelSerializer):
     class Meta:
