@@ -117,8 +117,8 @@ def entity_extraction(sentence):
     global flag
     tokens_tag = word_tokenize(sentence)
     poss_tag = pos_tag(tokens_tag)
-    grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<NN>}"
-    # grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<JJ>?<NN>}"
+    #grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<NN>}"
+    grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<JJ>?<NN>}"
     # grammar = "NP: {<DT|PP\$>?<JJ>*<NN>}"
     cp = nltk.RegexpParser(grammar)
     result = cp.parse(poss_tag)
@@ -128,7 +128,7 @@ def entity_extraction(sentence):
             flag = 1
         elif (npstr == "profile"):
             flag = 2
-        elif (npstr == "salary"):
+        elif (npstr == "salary details"):
             flag = 3
         else:
             print("yo...")
