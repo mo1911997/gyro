@@ -79,7 +79,7 @@ class MainView(APIView):
         if(flag == 1):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
         elif(flag == 2):
-            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getempleave/', data = request.data)
+            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getemp/', data = request.data)
         else:
             print("bo...")
         return Response(r)
