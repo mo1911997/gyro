@@ -16,3 +16,6 @@ class Leave(models.Model):
 
 class LeaveConverseResponses(models.Model):
     sentence = models.CharField(max_length=400)
+
+class ProfileConverseResponses(models.Model):
+    sentence = models.CharField(max_length=400)

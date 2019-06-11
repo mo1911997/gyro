@@ -70,6 +70,8 @@ class MainView(APIView):
 
     def post(self,request,format=None):
         sentence = request.data['sentence']
+        list = []
+        list.append(sentence)
         id = request.data['id']
         global flag
         r = None
@@ -80,7 +82,7 @@ class MainView(APIView):
         elif (flag == 2):
             r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getemp/', data = request.data)
         elif (flag == 3):
-            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getsal/', data=request.data)
+            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getsal/', data = request.data)
         else:
             print("bo...")
         return Response(r)
