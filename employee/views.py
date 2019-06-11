@@ -120,6 +120,12 @@ class ProfileApply(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    def get(self, request, format=None):
+        users = ProfileConverseResponses.objects.all()
+        serializer = ProfileConSerializer(users, many=True)
+        list = serializer.data
+        return Response(list)
+
 
 def extract_np(psent):
     for subtree in psent.subtrees():
