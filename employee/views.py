@@ -38,9 +38,9 @@ class EmployeeView(APIView):
 class GetEmployeeLeaveView(APIView):
     def post(self, request, format=None):
         global flag
-        user_id = request.data['empid']
-        user = Leave.objects.filter(empid=user_id)
-        serializer = Leave2Serializer(user, many=True)
+        user_id = request.data['id']
+        user = Employee.objects.filter(id=user_id)
+        serializer = EmployeeSerializer(user, many=True)
         flag = 0
         return Response(serializer.data)
 
@@ -83,7 +83,7 @@ class LeaveAddView(APIView):
 
     def post(self,request,format=None):
         sentence = request.data['sentence']
-        empid = request.data['eid']
+        id = request.data['id']
         global flag
         r = None
         if (flag == 0):
