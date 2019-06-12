@@ -86,7 +86,7 @@ class MainView(APIView):
         elif (flag == 4):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getprofileconv/')
             if(r == "thank you"):
-                r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/',data = list[1:-1])
+                r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/',data = request.data.getlist(list))
         else:
             print("bo...")
         return Response(r)
