@@ -141,7 +141,7 @@ def extract_np(psent):
             yield ' '.join(word for word, tag in subtree.leaves())
 
 def entity_extraction(sentence):
-    global flag
+    global flag 
     tokens_tag = word_tokenize(sentence)
     poss_tag = pos_tag(tokens_tag)
     #grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<NN>}"
