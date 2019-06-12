@@ -28,7 +28,7 @@ class EmployeeView(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = EmployeeSerializer(data=request.session['list'])
+        serializer = EmployeeSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -87,7 +87,7 @@ class MainView(APIView):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getprofileconv/')
             if(r == "thank you"):
                 request.session['data'] = list
-                r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/',data = request.session)
+                r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/',data = request.data)
         else:
             print("bo...")
         return Response(r)
