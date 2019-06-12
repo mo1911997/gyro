@@ -148,7 +148,7 @@ def entity_extraction(sentence):
     tokens_tag = word_tokenize(sentence)
     poss_tag = pos_tag(tokens_tag)
     #grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<NN>}"
-    grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<JJ>?<PRP$>?<NN>}"
+    grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<JJ>?<NN>}"
     # grammar = "NP: {<DT|PP\$>?<JJ>*<NN>}"
     cp = nltk.RegexpParser(grammar)
     result = cp.parse(poss_tag)
@@ -156,9 +156,9 @@ def entity_extraction(sentence):
     for npstr in result2:
         if (npstr == "apply for leave"):
             flag = 1
-        elif (npstr == " "):
+        elif (npstr == "details"):
             flag = 2
-        elif (npstr == "salary details"):
+        elif (npstr == "salary"):
             flag = 3
         elif (npstr == "profile"):
             flag = 4
