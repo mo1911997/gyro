@@ -28,7 +28,7 @@ class EmployeeView(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = EmployeeSerializer(data=request.session)
+        serializer = EmployeeSerializer(data=request.session['list'])
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
