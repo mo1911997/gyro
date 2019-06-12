@@ -81,9 +81,9 @@ class MainView(APIView):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
         elif (flag == 2):
             r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getemp/', data = request.data)
-        elif (flag == 4):
-            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getsal/', data = request.data)
         elif (flag == 3):
+            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getsal/', data = request.data)
+        elif (flag == 4):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getprofileconv')
         else:
             print("bo...")
@@ -145,7 +145,7 @@ def entity_extraction(sentence):
     tokens_tag = word_tokenize(sentence)
     poss_tag = pos_tag(tokens_tag)
     #grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<NN>}"
-    grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<JJ>?<NN>}"
+    grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<JJ>?<PRP$>?<NN>}"
     # grammar = "NP: {<DT|PP\$>?<JJ>*<NN>}"
     cp = nltk.RegexpParser(grammar)
     result = cp.parse(poss_tag)
@@ -153,10 +153,12 @@ def entity_extraction(sentence):
     for npstr in result2:
         if (npstr == "apply for leave"):
             flag = 1
-        elif (npstr == "profile"):
+        elif (npstr == "my profile"):
             flag = 2
         elif (npstr == "salary details"):
             flag = 3
+        elif (npstr == "profile"):
+            flag = 4
         else:
             print("yo...")
 
