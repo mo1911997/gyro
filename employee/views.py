@@ -141,7 +141,7 @@ def extract_np(psent):
             yield ' '.join(word for word, tag in subtree.leaves())
 
 def entity_extraction(sentence):
-    global flag 
+    global flag
     tokens_tag = word_tokenize(sentence)
     poss_tag = pos_tag(tokens_tag)
     #grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<NN>}"
@@ -153,7 +153,7 @@ def entity_extraction(sentence):
     for npstr in result2:
         if (npstr == "apply for leave"):
             flag = 1
-        elif (npstr == "my profile"):
+        elif (npstr == " "):
             flag = 2
         elif (npstr == "salary details"):
             flag = 3
