@@ -70,9 +70,9 @@ class MainView(APIView):
 
     def post(self,request,format=None):
         sentence = request.data['sentence']
-        list = []
-        list.append(sentence)
         id = request.data['id']
+        list1 = []
+        list1.append(sentence)
         global flag
         r = None
         if (flag == 0):
@@ -86,8 +86,13 @@ class MainView(APIView):
         elif (flag == 4):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getprofileconv/')
             if(r == "thank you"):
-                request.session['data'] = list
-                r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/',data = request.data)
+                d = {}
+                d['name'] = list1[1]
+                d['phone'] = list1[2]
+                d['email'] = list1[3]
+                d['designation'] = list1[4]
+                d['salary'] = list1[5]
+                r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/',data = d)
         else:
             print("bo...")
         return Response(r)
