@@ -16,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/employee/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="89" selection-start-line="89" selection-end-line="89" />
+            <state relative-caret-position="289">
+              <caret line="91" column="18" lean-forward="true" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="18" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -143,27 +143,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558636176036</updated>
-    </task>
-    <task id="LOCAL-00161" summary="api redirect">
-      <created>1559813770684</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1559813770684</updated>
-    </task>
-    <task id="LOCAL-00162" summary="api redirect">
-      <created>1559814345155</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL-00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1559814345155</updated>
-    </task>
-    <task id="LOCAL-00163" summary="api redirect">
-      <created>1559815558712</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1559815558712</updated>
     </task>
     <task id="LOCAL-00164" summary="api redirect">
       <created>1559815704952</created>
@@ -487,7 +466,28 @@
       <option name="project" value="LOCAL" />
       <updated>1560753094709</updated>
     </task>
-    <option name="localTasksCounter" value="210" />
+    <task id="LOCAL-00210" summary="trace back">
+      <created>1560753931873</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1560753931873</updated>
+    </task>
+    <task id="LOCAL-00211" summary="trace back">
+      <created>1560754359964</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1560754359964</updated>
+    </task>
+    <task id="LOCAL-00212" summary="trace back">
+      <created>1560754464319</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1560754464319</updated>
+    </task>
+    <option name="localTasksCounter" value="213" />
     <servers />
   </component>
   <component name="TodoView">
@@ -649,8 +649,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/employee/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
+        <state relative-caret-position="289">
+          <caret line="91" column="18" lean-forward="true" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="18" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>

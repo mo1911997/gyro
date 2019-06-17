@@ -87,7 +87,7 @@ class MainView(APIView):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getprofileconv/')
         else:
             print("bo...")
-        if (r == "thank you"):
+        if (r.__eq__("thank you")):
             return Response("in here")
             d = {}
             d['name'] = list1[1]
