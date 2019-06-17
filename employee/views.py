@@ -95,8 +95,7 @@ class MainView(APIView):
             d['email'] = list1[3]
             d['designation'] = list1[4]
             d['salary'] = list1[5]
-            m = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/', data=d)
-            return Response(r)
+            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/', data=d)
         return Response(r)
 
 class LeaveApply(APIView):
