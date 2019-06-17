@@ -85,17 +85,17 @@ class MainView(APIView):
             r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getsal/', data = request.data)
         elif (flag == 4):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getprofileconv/')
+            if (r.__eq__("thank you")):
+                d = {}
+                d['name'] = list1[1]
+                d['phone'] = list1[2]
+                d['email'] = list1[3]
+                d['designation'] = list1[4]
+                d['salary'] = list1[5]
+                r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/', data = d)
         else:
             print("bo...")
-        if (r.__eq__("thank you")):
-            return Response("in here")
-            d = {}
-            d['name'] = list1[1]
-            d['phone'] = list1[2]
-            d['email'] = list1[3]
-            d['designation'] = list1[4]
-            d['salary'] = list1[5]
-            r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/', data=d)
+       
         return Response(r)
 
 class LeaveApply(APIView):
