@@ -93,8 +93,8 @@ class MainView(APIView):
                 d['designation'] = list1[4]
                 d['salary'] = list1[5]
 
-                r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/',data = d)
-                return Response(d)
+                m = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/',data = d)
+                return Response(m)
         else:
             print("bo...")
         return Response(r)
