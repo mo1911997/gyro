@@ -92,7 +92,9 @@ class MainView(APIView):
                 d['email'] = list1[3]
                 d['designation'] = list1[4]
                 d['salary'] = list1[5]
+
                 r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/',data = d)
+                return Response(d)
         else:
             print("bo...")
         return Response(r)
@@ -100,7 +102,7 @@ class MainView(APIView):
 class LeaveApply(APIView):
 
     def post(self,request,format=None):
-        serializer = LeaveConSerializer(data=request.data) 
+        serializer = LeaveConSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
