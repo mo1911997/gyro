@@ -100,7 +100,7 @@ class MainView(APIView):
 class LeaveApply(APIView):
 
     def post(self,request,format=None):
-        serializer = LeaveConSerializer(data=request.data)
+        serializer = LeaveConSerializer(data=request.data) 
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
