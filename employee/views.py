@@ -165,5 +165,6 @@ def entity_extraction(sentence):
         else:
             print("yo...")
 
-
-
+class Demo(APIView):
+    def get(self,request,format=None):
+            return Response(request.data)

@@ -1,6 +1,6 @@
 
 from django.urls import path,include
-from .views import EmployeeView,GetSalView,MainView,LeaveView,GetOneEmployeeView,LeaveApply,ProfileApply
+from .views import EmployeeView,GetSalView,MainView,LeaveView,GetOneEmployeeView,LeaveApply,ProfileApply,Demo
 
 urlpatterns = [
 
@@ -10,5 +10,6 @@ urlpatterns = [
     path('getsal/',GetSalView.as_view()),
     path('main/',MainView.as_view()),
     path('getleaveconv/',LeaveApply.as_view()),
-    path('getprofileconv/',ProfileApply.as_view())
+    path('getprofileconv/',ProfileApply.as_view()),
+    path('sample/',Demo.as_view())
 ]
