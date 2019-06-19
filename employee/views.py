@@ -21,6 +21,7 @@ from nltk import word_tokenize
 
 iid = -1
 flag = 0
+list1 = []
 
 class EmployeeView(APIView):
     def get(self, request, format=None):
@@ -72,7 +73,7 @@ class MainView(APIView):
     def post(self,request,format=None):
         sentence = request.data['sentence']
         id = request.data['id']
-        list1 = []
+        global list1
         list1.append(sentence)
         global flag
         r = None
@@ -95,6 +96,7 @@ class MainView(APIView):
                 d['email'] = list1[3]
                 d['designation'] = list1[4]
                 d['salary'] = list1[5]
+                list1.clear()
                 r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/', data = d)
         else:
             print("bo...")
