@@ -5,6 +5,7 @@ from django.shortcuts import redirect,render
 from rest_framework import status
 import json
 import sys
+import re
 import requests
 from .serializers import *
 from rest_framework.response import Response
@@ -85,7 +86,9 @@ class MainView(APIView):
             r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getsal/', data = request.data)
         elif (flag == 4):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getprofileconv/')
-            if (r == "thank you"):
+            s = "thank you"
+            result = re.search(s, r.text)
+            if (result):
                 return Response("in here")
                 d = {}
                 d['name'] = list1[1]
