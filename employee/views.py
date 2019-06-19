@@ -89,7 +89,6 @@ class MainView(APIView):
             s = "thank you"
             result = re.search(s, r.text)
             if (result):
-                return Response("in here")
                 d = {}
                 d['name'] = list1[1]
                 d['phone'] = list1[2]
