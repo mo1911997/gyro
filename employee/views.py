@@ -18,7 +18,7 @@ from nltk import ne_chunk
 from nltk import pos_tag
 from nltk import RegexpParser
 from nltk import word_tokenize
-
+ 
 iid = -1
 flag = 0
 list1 = []
