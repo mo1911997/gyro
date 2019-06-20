@@ -159,7 +159,7 @@ def entity_extraction(sentence):
     tokens_tag = word_tokenize(sentence)
     poss_tag = pos_tag(tokens_tag)
     #grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<NN>}"
-    grammar = "NP: {<VBP>*<VB>*<IN>?<DT>?<JJ>?<NN>}"
+    grammar = "NP: {<VB>?<IN>?<DT>?<JJ>?<NN>?}"
     # grammar = "NP: {<DT|PP\$>?<JJ>*<NN>}"
     cp = nltk.RegexpParser(grammar)
     result = cp.parse(poss_tag)
