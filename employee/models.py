@@ -10,8 +10,11 @@ class Employee(models.Model):
 
 class Leave(models.Model):
     type = models.CharField(max_length=40)
-    days = models.IntegerField()
     balance = models.IntegerField()
+    from_date = models.IntegerField()
+    to_date = models.IntegerField()
+    no_of_days = models.IntegerField(default=0)
+    reason = models.CharField(max_length=150)
     empid = models.ForeignKey(Employee,on_delete=models.CASCADE)
 
 class LeaveConverseResponses(models.Model):

@@ -18,7 +18,7 @@ from nltk import ne_chunk
 from nltk import pos_tag
 from nltk import RegexpParser
 from nltk import word_tokenize
- 
+
 iid = -1
 flag = 0
 list1 = []
@@ -49,6 +49,11 @@ class LeaveView(APIView):
         serializer = LeaveSerializer(users, many=True)
         list = serializer.data
         return Response(list)
+
+    def delete(self, request, format=None):
+        users = Leave.objects.all()
+        users.delete()
+        return Response("done")
 
 class GetOneEmployeeView(APIView):
     def post(self, request, format=None):
