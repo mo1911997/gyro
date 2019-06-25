@@ -12,8 +12,8 @@ class Leave(models.Model):
     type = models.CharField(max_length=40)
     balance = models.IntegerField()
     days = models.IntegerField()
-    from_date = models.IntegerField(default=0)
-    to_date = models.IntegerField(default=0)
+    from_date = models.DateField()
+    to_date = models.DateField()
     reason = models.CharField(max_length=150,default=None)
     empid = models.ForeignKey(Employee,on_delete=models.CASCADE)
 
