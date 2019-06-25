@@ -17,7 +17,7 @@ class Leave(models.Model):
     reason = models.CharField(max_length=150,default=None)
     empid = models.ForeignKey(Employee,on_delete=models.CASCADE)
 
-class LeaveConverseResponses(models.Model):
+class LeaveConverseResponses(models.Model): 
     sentence = models.CharField(max_length=400)
 
 class ProfileConverseResponses(models.Model):
