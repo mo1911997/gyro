@@ -12,12 +12,12 @@ class Leave(models.Model):
     type = models.CharField(max_length=40)
     balance = models.IntegerField()
     days = models.IntegerField()
-    fromdate = models.DateField(default=None)
-    todate = models.DateField(default=None)
-    reason = models.CharField(max_length=150,default=None)
+    fromdate = models.DateField()
+    todate = models.DateField()
+    reason = models.CharField(max_length=150)
     empid = models.ForeignKey(Employee,on_delete=models.CASCADE)
 
-class LeaveConverseResponses(models.Model): 
+class LeaveConverseResponses(models.Model):
     sentence = models.CharField(max_length=400)
 
 class ProfileConverseResponses(models.Model):
