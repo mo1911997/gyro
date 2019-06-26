@@ -15,7 +15,7 @@ class Leave(models.Model):
     fromdate = models.DateField()
     todate = models.DateField()
     reason = models.CharField(max_length=150)
-    reason2 = models.CharField(max_length=150)
+
     empid = models.ForeignKey(Employee,on_delete=models.CASCADE)
 
 class LeaveConverseResponses(models.Model):
