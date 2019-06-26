@@ -13,7 +13,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/employee/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
+            <state>
               <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
@@ -47,11 +47,6 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/employee/migrations/0001_initial.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/employee/migrations/0004_leaveconverseresponses.py">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -161,13 +156,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558636176036</updated>
-    </task>
-    <task id="LOCAL-00194" summary="bot demo">
-      <created>1560248992810</created>
-      <option name="number" value="00194" />
-      <option name="presentableId" value="LOCAL-00194" />
-      <option name="project" value="LOCAL" />
-      <updated>1560248992810</updated>
     </task>
     <task id="LOCAL-00195" summary="bot demo">
       <created>1560318894682</created>
@@ -505,7 +493,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561462157655</updated>
     </task>
-    <option name="localTasksCounter" value="243" />
+    <task id="LOCAL-00243" summary="applied migrations again">
+      <created>1561575938140</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1561575938140</updated>
+    </task>
+    <option name="localTasksCounter" value="244" />
     <servers />
   </component>
   <component name="TodoView">
@@ -519,6 +514,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.29389882" />
@@ -559,7 +555,6 @@
     </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="leave table added" />
     <MESSAGE value="get leave view" />
     <MESSAGE value="get one leave view" />
     <MESSAGE value="get all leave view" />
@@ -584,7 +579,8 @@
     <MESSAGE value="saving data to database" />
     <MESSAGE value="trace back" />
     <MESSAGE value="leave converse api" />
-    <option name="LAST_COMMIT_MESSAGE" value="leave converse api" />
+    <MESSAGE value="applied migrations again" />
+    <option name="LAST_COMMIT_MESSAGE" value="applied migrations again" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/gyro/wsgi.py">
@@ -654,7 +650,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/employee/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
+        <state>
           <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
@@ -702,15 +698,15 @@
     <entry file="file://$PROJECT_DIR$/employee/migrations/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/employee/migrations/0004_leaveconverseresponses.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/employee/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/employee/migrations/0004_leaveconverseresponses.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/employee/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor" />
