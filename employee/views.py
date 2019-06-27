@@ -86,6 +86,18 @@ class MainView(APIView):
             entity_extraction(sentence)
         if (flag == 1):
             r = requests.get('https://peaceful-shore-77889.herokuapp.com/employee/getleaveconv/')
+            s = "thank you"
+            result = re.search(s, r.text)
+            if (result):
+                d = {}
+                d['type'] = list1[1]
+                d['days'] = list1[2]
+                d['fromdate'] = list1[3]
+                d['todate'] = list1[4]
+                d['reason'] = list1[5]
+                d['empid'] = id
+                list1.clear()
+                r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/leave/', data=d)
         elif (flag == 2):
             r = requests.post('https://peaceful-shore-77889.herokuapp.com/employee/getemp/', data = request.data)
         elif (flag == 3):
