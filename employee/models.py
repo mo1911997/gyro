@@ -10,7 +10,7 @@ class Employee(models.Model):
 
 class Leave(models.Model):
     type = models.CharField(max_length=40)
-    balance = models.IntegerField()
+    balance = models.IntegerField(default=0)
     days = models.IntegerField()
     fromdate = models.DateField()
     todate = models.DateField()
