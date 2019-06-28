@@ -144,7 +144,7 @@ class LeaveApply(APIView):
         #     return Response("thank you")
         users = LeaveConverseResponses.objects.all()
         serializer = LeaveConSerializer(users, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data['sentence'])
 
 class ProfileApply(APIView):
 
