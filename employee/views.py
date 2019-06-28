@@ -143,7 +143,7 @@ class LeaveApply(APIView):
         #     flag = 0
         #     return Response("thank you")
         users = LeaveConverseResponses.objects.all()
-        serializer = EmployeeSerializer(users, many=True)
+        serializer = LeaveConSerializer(users, many=True)
         return Response(serializer.data)
 
 class ProfileApply(APIView):
