@@ -18,7 +18,7 @@ class Employee2Serializer(serializers.ModelSerializer):
 class LeaveConSerializer(serializers.ModelSerializer):
     class Meta:
         model = LeaveConverseResponses
-        fields = ['sentence']
+        fields = '__all__'
 
 class ProfileConSerializer(serializers.ModelSerializer):
     class Meta:
