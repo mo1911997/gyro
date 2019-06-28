@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from rest_framework.views import APIView
 from .models import Employee
 from django.shortcuts import redirect,render
+import pdb
 from rest_framework import status
 import json
 import sys
@@ -142,8 +143,11 @@ class LeaveApply(APIView):
         #     iid = -1
         #     flag = 0
         #     return Response("thank you")
+
         users = LeaveConverseResponses.objects.all()
         serializer = LeaveConSerializer(users, many=True)
+        print(users)
+        pdb.set_trace()
         return Response(serializer.data)
 
 class ProfileApply(APIView):
