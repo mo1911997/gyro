@@ -138,7 +138,7 @@ class LeaveApply(APIView):
              serializer = LeaveConSerializer(users, many=True)
              list = serializer.data
 
-             return Response(list)
+             return Response(list[iid])
          except IndexError:
              iid = -1
              flag = 0
