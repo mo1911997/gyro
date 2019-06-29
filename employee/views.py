@@ -131,24 +131,24 @@ class LeaveApply(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, format=None):
-        # try:
-        #     global iid,flag
-        #     iid = iid + 1
-        #     users = LeaveConverseResponses.objects.all()
-        #     serializer = LeaveConSerializer(users, many=True)
-        #     list = serializer.data
-        #
-        #     return Response(list)
-        # except IndexError:
-        #     iid = -1
-        #     flag = 0
-        #     return Response("thank you")
+         try:
+             global iid,flag
+             iid = iid + 1
+             users = LeaveConverseResponses.objects.all()
+             serializer = LeaveConSerializer(users, many=True)
+             list = serializer.data
 
-        users = LeaveConverseResponses.objects.all()
-        serializer = LeaveConSerializer(users, many=True)
-        print(users)
-        pdb.set_trace()
-        return Response(serializer.data)
+             return Response(list)
+         except IndexError:
+             iid = -1
+             flag = 0
+             return Response("thank you")
+
+        # users = LeaveConverseResponses.objects.all()
+        # serializer = LeaveConSerializer(users, many=True)
+        # print(users)
+        # pdb.set_trace()
+        # return Response(serializer.data)
 
 class ProfileApply(APIView):
 
